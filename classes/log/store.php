@@ -103,6 +103,7 @@ class store extends php_obj implements log_writer {
                 'send_course_and_module_idnumber' => $this->get_config('sendidnumber', false),
                 'send_username' => $this->get_config('send_username', false),
                 'send_jisc_data' => $this->get_config('send_jisc_data', false),
+                'send_bestr_data' => $this->get_config('send_bestr_data', false),
                 'session_id' => sesskey(),
                 'plugin_url' => 'https://github.com/xAPI-vle/moodle-logstore_xapi',
                 'plugin_version' => $plugin->release,

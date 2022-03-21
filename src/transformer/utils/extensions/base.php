@@ -20,6 +20,7 @@ defined('MOODLE_INTERNAL') || die();
 function base(array $config, \stdClass $event, $course=null) {
     return array_merge(
         info($config, $event),
-        jisc($config, $event, $course)
+        jisc($config, $event, $course),
+        bestr($config, $event, $course)
     );
 }

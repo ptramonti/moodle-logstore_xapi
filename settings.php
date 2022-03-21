@@ -61,7 +61,11 @@ if ($hassiteconfig) {
 
     $settings->add(new admin_setting_configcheckbox('logstore_xapi/send_jisc_data',
         get_string('send_jisc_data', 'logstore_xapi'),
-        get_string('send_jisc_data_desc', 'logstore_xapi'), 0));
+    		get_string('send_jisc_data_desc', 'logstore_xapi'), 0));
+    
+    $settings->add(new admin_setting_configcheckbox('logstore_xapi/send_bestr_data',
+    		get_string('send_bestr_data', 'logstore_xapi'),
+    		get_string('send_bestr_data_desc', 'logstore_xapi'), 0));
 
     $settings->add(new admin_setting_configcheckbox('logstore_xapi/sendresponsechoices',
        get_string('send_response_choices', 'logstore_xapi'),
