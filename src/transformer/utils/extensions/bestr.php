@@ -28,12 +28,19 @@ function bestr(array $config, \stdClass $event, $course) {
 		else {
 			$user = $repo->read_record_by_id('user', $event->userid);
 		}
-		$profilefields = (array) profile_user_record($user->id, false);
+		
+		global $DB;
+		$sql = 'SELECT `data` FROM mdl_user_info_data uind JOIN mdl_user_info_field uif ON uif.id = uind.fieldid AND uind.userid = :userid AND uif.shortname = :fieldname';
+		$fieldvalue = $DB->get_field_sql($sql, ['userid' => $user->id, 'fieldname' => 'codfis']);
+		if(!$fieldvalue) {
+			$fieldvalue = '';
+		}
+
         return array(
 			'http://lrs.bestr.it/lrs/define/context/extensions/actor' => array(
 				"actor_name" => $user->firstname,
 				"actor_surname" => $user->lastname,
-				"actor_cf" => $profilefields["codfis"]
+				"actor_cf" => $fieldvalue
 				)
 			);
     }
